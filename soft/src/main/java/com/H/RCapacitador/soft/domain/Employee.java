@@ -1,0 +1,84 @@
+package com.H.RCapacitador.soft.domain;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "employees")
+public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank
+    @Column(nullable = false, length = 120)
+    private String fullName;
+
+    @NotBlank
+    @Column(nullable = false, length = 50)
+    private String role;
+
+    @NotBlank
+    @Column(nullable = false, unique = true, length = 50)
+    private String employeeCode;
+
+    @Email
+    @Column(length = 150)
+    private String email;
+
+    @NotNull
+    @Column(nullable = false, length = 50)
+    private String baseStation;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getEmployeeCode() {
+        return employeeCode;
+    }
+
+    public void setEmployeeCode(String employeeCode) {
+        this.employeeCode = employeeCode;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBaseStation() {
+        return baseStation;
+    }
+
+    public void setBaseStation(String baseStation) {
+        this.baseStation = baseStation;
+    }
+}
+
